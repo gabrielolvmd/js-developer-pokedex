@@ -10,72 +10,144 @@
   background-color: #a6a877;
 }
 
+.normal .hover_details {
+  background-color: color-mix(in srgb, #a6a877, white 15%);
+}
+
 .grass {
   background-color: #77c850;
+}
+
+.grass .hover_details {
+  background-color: color-mix(in srgb, #77c850, white 15%);
 }
 
 .fire {
   background-color: #ee7f30;
 }
 
+.fire .hover_details {
+  background-color: color-mix(in srgb, #ee7f30, white 15%);
+}
+
 .water {
   background-color: #678fee;
+}
+
+.water .hover_details {
+  background-color: color-mix(in srgb, #678fee, white 15%);
 }
 
 .electric {
   background-color: #f7cf2e;
 }
 
+.electric .hover_details {
+  background-color: color-mix(in srgb, #f7cf2e, white 15%);
+}
+
 .ice {
   background-color: #98d5d7;
+}
+
+.ice .hover_details {
+  background-color: color-mix(in srgb, #98d5d7, white 15%);
 }
 
 .ground {
   background-color: #dfbf69;
 }
 
+.ground .hover_details {
+  background-color: color-mix(in srgb, #dfbf69, white 15%);
+}
+
 .flying {
   background-color: #a98ff0;
+}
+
+.flying .hover_details {
+  background-color: color-mix(in srgb, #a98ff0, white 15%);
 }
 
 .poison {
   background-color: #a040a0;
 }
 
+.poison .hover_details {
+  background-color: color-mix(in srgb, #a040a0, white 15%);
+}
+
 .fighting {
   background-color: #bf3029;
+}
+
+.fighting .hover_details {
+  background-color: color-mix(in srgb, #bf3029, white 15%);
 }
 
 .psychic {
   background-color: #f65687;
 }
 
+.psychic .hover_details {
+  background-color: color-mix(in srgb, #f65687, white 15%);
+}
+
 .dark {
   background-color: #725847;
+}
+
+.dark .hover_details {
+  background-color: color-mix(in srgb, #725847, white 15%);
 }
 
 .rock {
   background-color: #b8a137;
 }
 
+.rock .hover_details {
+  background-color: color-mix(in srgb, #b8a137, white 15%);
+}
+
 .bug {
   background-color: #a8b720;
+}
+
+.bug .hover_details {
+  background-color: color-mix(in srgb, #a8b720, white 15%);
 }
 
 .ghost {
   background-color: #6e5896;
 }
 
+.ghost .hover_details {
+  background-color: color-mix(in srgb, #6e5896, white 15%);
+}
+
 .steel {
   background-color: #b9b7cf;
+}
+
+.steel .hover_details {
+  background-color: color-mix(in srgb, #b9b7cf, white 15%);
 }
 
 .dragon {
   background-color: #6f38f6;
 }
 
+.dragon .hover_details {
+  background-color: color-mix(in srgb, #6f38f6, white 15%);
+}
+
 .fairy {
   background-color: #f9aec7;
+}
+
+.fairy .hover_details {
+  background-color: color-mix(in srgb, #f9aec7, white 15%);
 }
 
 .pokemon {
@@ -84,7 +156,17 @@
   margin: 0.5rem;
   padding: 1rem;
   border-radius: 1rem;
-  background: rgb(101, 190, 120);
+  background-image: url(/assets/POKEBALL.svg);
+  background-position: 130% 240%;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-blend-mode: soft-light;
+  position: relative;
+  overflow: hidden;
+}
+
+.pokemon:hover {
+  transition: scale 0.5s;
 }
 
 .pokemon .number {
@@ -92,12 +174,14 @@
   opacity: 0.3;
   text-align: right;
   font-size: 0.625rem;
+  font-weight: 600;
 }
 
 .pokemon .name {
   text-transform: capitalize;
   color: #fff;
   margin-bottom: 0.25rem;
+  font-weight: 600;
 }
 
 .pokemon .detail {
@@ -107,6 +191,48 @@
   justify-content: space-between;
 }
 
+.hw {
+  display: flex;
+  gap: 1em;
+}
+
+.pokemon .hover_details {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  color: white;
+  opacity: 0;
+  justify-content: space-around;
+  flex-direction: column;
+  transition: opacity 0.7s;
+}
+
+.pokemon:hover .hover_details {
+  opacity: 1;
+  transition: opacity 0.7s;
+}
+
+.abilities {
+  display: flex;
+  width: 40%;
+  gap: 0.3em;
+  flex-direction: column;
+}
+
+.ability {
+  display: block;
+  background-color: #ffffff34;
+  font-size: 0.625rem;
+  padding: 0.5em 1em;
+  text-align: center;
+  border-radius: 1rem;
+}
+
 .pokemon .detail .types {
   padding: 0;
   margin: 0;
@@ -114,18 +240,21 @@
 }
 
 .pokemon .detail .types .type {
+  text-transform: capitalize;
   color: #fff;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 1rem;
   margin: 0.25rem 0;
   font-size: 0.625rem;
   border-radius: 1rem;
+  background-color: #ffffff34;
   filter: brightness(1.1);
   text-align: center;
 }
 
 .pokemon .detail img {
   max-width: 100%;
-  height: 70px;
+  height: 90px;
+  z-index: 4;
 }
 
 .pagination {
@@ -138,13 +267,14 @@
 }
 
 .pagination button {
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 1rem;
   margin: 0.25rem 0;
-  font-size: 0.625rem;
+  font-size: 0.6rem;
   color: #fff;
   background-color: #6c79db;
   border: none;
   border-radius: 1rem;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 380px) {
